@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns:bk="http://example.com/books">
+    <book id="B101" category="Programming">
+        <title>HTML Basics</title>
+        <author>John Smith</author>
+        <price>500</price>
+    </book>
+    <book id="B102" category="Web">
+        <title>CSS Design</title>
+        <author>Mary Jones</author>
+        <price>650</price>
+    </book>
+    <book id="B103" category="JavaScript">
+        <title>JS Essentials</title>
+        <author>David Lee</author>
+        <price>700</price>
+    </book>
+</library>

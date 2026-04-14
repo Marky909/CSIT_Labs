@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information Page</title>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        #main-box {
+            width: 500px;
+            margin: 20px auto;
+            border: 3px solid black;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+
+        ul {
+            background: #eef;
+            padding: 10px 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid gray;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 style="text-transform: uppercase;">Product Information</h1> <!-- Inline CSS -->
+
+    <div id="main-box">
+        <h2 class="product-title">Wireless Headphone</h2>
+        <p>This is a premium quality headphone with excellent sound clarity.</p>
+        <p class="price">Price: Rs. 3,500</p>
+
+        <h3>Features</h3>
+        <ul>
+            <li>Bluetooth Connectivity</li>
+            <li>Noise Cancellation</li>
+            <li>Long Battery Life</li>
+        </ul>
+
+        <h3>Specifications</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Battery</td>
+                <td>20 Hours</td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td>250g</td>
+            </tr>
+            <tr>
+                <td>Warranty</td>
+                <td>1 Year</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

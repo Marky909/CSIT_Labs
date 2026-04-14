@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery and JSON Interactive Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .box {
+            padding: 15px;
+            margin: 10px 0;
+            background: #eef;
+            border: 1px solid #999;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery and JSON Demo</h1>
+
+    <button id="hideBtn">Hide Content</button>
+    <button id="showBtn">Show Content</button>
+    <button id="fadeBtn">Fade Image</button>
+    <button id="animateBtn">Animate Section</button>
+    <button id="loadBtn">Load Product Data</button>
+
+    <div class="box" id="contentBox">
+        This content can be shown or hidden using jQuery.
+    </div>
+
+    <img id="demoImage" src="product.jpg" alt="Product" width="200">
+
+    <div class="box" id="animateBox" style="width:200px; position:relative;">
+        Animated Section
+    </div>
+
+    <h2>Product Details</h2>
+    <table id="productTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#hideBtn").click(function () {
+                $("#contentBox").hide();
+            });
+
+            $("#showBtn").click(function () {
+                $("#contentBox").show();
+            });
+
+            $("#fadeBtn").click(function () {
+                $("#demoImage").fadeToggle();
+            });
+
+            $("#animateBtn").click(function () {
+                $("#animateBox").animate({ left: '150px' }, 1000);
+            });
+
+            $("#loadBtn").click(function () {
+                let products = [
+                    { "id": 1, "name": "Laptop", "price": 65000 },
+                    { "id": 2, "name": "Mouse", "price": 1200 },
+                    { "id": 3, "name": "Keyboard", "price": 2500 }
+                ];
+
+                for (let i = 0; i < products.length; i++) {
+                    $("#productTable").append(
+                        "<tr><td>" + products[i].id + "</td><td>" +
+                        products[i].name + "</td><td>" +
+                        products[i].price + "</td></tr>"
+                    );
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

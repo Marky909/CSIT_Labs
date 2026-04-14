@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <script>
+        function showMessage(msg) {
+            document.getElementById("message").innerHTML = msg;
+        }
+
+        function keyPressed() {
+            document.getElementById("keyboard").innerHTML = "Keyboard event detected.";
+        }
+
+        function submitForm() {
+            alert("Form submitted successfully!");
+        }
+    </script>
+</head>
+<body onload="alert('Page Loaded Successfully')">
+
+    <h1>Student Registration Form</h1>
+
+    <form onclick="showMessage('Form clicked')" onsubmit="submitForm()">
+        <label>Full Name:</label><br>
+        <input type="text" name="fullname" onfocus="showMessage('Name field focused')" onblur="showMessage('Name field lost focus')" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" onkeydown="keyPressed()" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" onchange="showMessage('Email changed')" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br>
+
+        <label>Hobbies:</label><br>
+        <input type="checkbox" name="hobby" value="Coding"> Coding
+        <input type="checkbox" name="hobby" value="Music"> Music
+        <input type="checkbox" name="hobby" value="Sports"> Sports<br><br>
+
+        <label>Faculty:</label><br>
+        <select onchange="showMessage('Faculty selected')">
+            <option value="">--Select--</option>
+            <option>BSc CSIT</option>
+            <option>BCA</option>
+            <option>BIM</option>
+        </select><br><br>
+
+        <label>Address:</label><br>
+        <textarea rows="4" cols="30" onmouseover="showMessage('Mouse over textarea')"></textarea><br><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+    </form>
+
+    <p id="message"></p>
+    <p id="keyboard"></p>
+
+</body>
+</html>

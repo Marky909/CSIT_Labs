@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator and DOM Demo</title>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    <br><br>
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <h2 id="result">Result: </h2>
+
+    <hr>
+
+    <h2 id="content">Original Content</h2>
+    <button onclick="changeContent()">Change Content</button>
+    <button onclick="showPopup()">Show Popup Boxes</button>
+
+    <script>
+        function calculate(op) {
+            let a = parseFloat(document.getElementById("num1").value);
+            let b = parseFloat(document.getElementById("num2").value);
+            let answer = 0;
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Please enter both numbers.");
+                return;
+            }
+
+            if (op === '+') answer = a + b;
+            else if (op === '-') answer = a - b;
+            else if (op === '*') answer = a * b;
+            else if (op === '/') {
+                if (b === 0) {
+                    alert("Division by zero is not allowed.");
+                    return;
+                }
+                answer = a / b;
+            }
+
+            document.getElementById("result").innerHTML = "Result: " + answer;
+        }
+
+        function changeContent() {
+            let text = "";
+            for (let i = 1; i <= 3; i++) {
+                text += "Line " + i + " updated dynamically.<br>";
+            }
+            document.getElementById("content").innerHTML = text;
+        }
+
+        function showPopup() {
+            alert("Welcome to JavaScript!");
+            let name = prompt("Enter your name:");
+            let ok = confirm("Do you want to continue?");
+            if (ok) {
+                document.getElementById("content").innerHTML = "Hello, " + name + ". You clicked OK.";
+            } else {
+                document.getElementById("content").innerHTML = "Operation cancelled.";
+            }
+        }
+    </script>
+
+</body>
+</html>

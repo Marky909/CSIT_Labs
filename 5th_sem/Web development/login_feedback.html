@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Feedback Validation</title>
+    <script>
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+        }
+
+        function getCookie(name) {
+            let cname = name + "=";
+            let decoded = decodeURIComponent(document.cookie);
+            let arr = decoded.split(';');
+            for (let i = 0; i < arr.length; i++) {
+                let c = arr[i].trim();
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length);
+                }
+            }
+            return "";
+        }
+
+        function loadUser() {
+            let savedName = getCookie("username");
+            if (savedName !== "") {
+                document.getElementById("welcome").innerHTML = "Welcome back, " + savedName;
+            }
+        }
+
+        function validateForm() {
+            try {
+                let username = document.getElementById("username").value.trim();
+                let password = document.getElementById("password").value.trim();
+                let email = document.getElementById("email").value.trim();
+                let phone = document.getElementById("phone").value.trim();
+                let feedback = document.getElementById("feedback").value.trim();
+
+                let usernamePattern = /^[A-Za-z]{3,15}$/;
+                let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+                let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let phonePattern = /^[0-9]{10}$/;
+
+                if (!usernamePattern.test(username)) {
+                    alert("Invalid username.");
+                    return false;
+                }
+                if (!passwordPattern.test(password)) {
+                    alert("Password must contain 1 capital letter, 1 number, and minimum 6 characters.");
+                    return false;
+                }
+                if (!emailPattern.test(email)) {
+                    alert("Invalid email.");
+                    return false;
+                }
+                if (!phonePattern.test(phone)) {
+                    alert("Phone number must be 10 digits.");
+                    return false;
+                }
+
+                let user = {
+                    username: username,
+                    email: email,
+                    phone: phone,
+                    feedback: feedback,
+                    loginDate: new Date().toLocaleString()
+                };
+
+                let infoArray = [user.username, user.email, user.phone];
+                let feedbackLength = feedback.length;
+                let roundedValue = Math.round(feedbackLength / 2);
+
+                setCookie("username", username, 7);
+
+                document.getElementById("output").innerHTML =
+                    "User Object Created Successfully.<br>" +
+                    "Stored Data: " + infoArray.join(" | ") + "<br>" +
+                    "Feedback Length: " + feedbackLength + "<br>" +
+                    "Rounded Math Value: " + roundedValue + "<br>" +
+                    "Login Time: " + user.loginDate;
+
+                return false;
+            } catch (error) {
+                document.getElementById("output").innerHTML = "Error: " + error.message;
+                return false;
+            }
+        }
+    </script>
+</head>
+<body onload="loadUser()">
+
+    <h1>Login and Feedback Form</h1>
+    <p id="welcome"></p>
+
+    <form onsubmit="return validateForm()">
+        <label>Username:</label><br>
+        <input type="text" id="username"><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password"><br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email"><br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" id="phone"><br><br>
+
+        <label>Feedback:</label><br>
+        <textarea id="feedback" rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <p id="output"></p>
+
+</body>
+</html>

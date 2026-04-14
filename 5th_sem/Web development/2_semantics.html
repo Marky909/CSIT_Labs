@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College News Blog</title>
+</head>
+<body>
+
+    <header>
+        <h1>Campus Buzz</h1>
+        <p>Your college news and events portal</p>
+    </header>
+
+    <nav>
+        <a href="#news">News</a> |
+        <a href="#events">Events</a> |
+        <a href="#media">Media</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="news">
+            <h2>Latest News</h2>
+
+            <article>
+                <h3>Annual Tech Fest Announced</h3>
+                <p>The college has officially announced the annual tech fest for this semester.</p>
+            </article>
+
+            <article>
+                <h3>Library Extended Hours</h3>
+                <p>The library will now remain open until 8 PM during examination month.</p>
+            </article>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Event</h2>
+            <figure>
+                <img src="event.jpg" alt="College Event" width="300">
+                <figcaption>Students attending last year’s innovation fair.</figcaption>
+            </figure>
+        </section>
+
+        <aside>
+            <h3>Notice Board</h3>
+            <p>Submit club registration forms before Friday.</p>
+        </aside>
+
+        <section id="media">
+            <h2>Media Section</h2>
+
+            <h3>Audio Announcement</h3>
+            <audio controls>
+                <source src="announcement.mp3" type="audio/mpeg">
+                Your browser does not support audio.
+            </audio>
+
+            <h3>Video Introduction</h3>
+            <video width="320" height="240" controls>
+                <source src="campus.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+
+            <h3>Simple Canvas Drawing</h3>
+            <canvas id="myCanvas" width="300" height="150" style="border:1px solid black;"></canvas>
+            <script>
+                const canvas = document.getElementById("myCanvas");
+                const ctx = canvas.getContext("2d");
+                ctx.fillStyle = "lightblue";
+                ctx.fillRect(20, 20, 100, 60);
+                ctx.beginPath();
+                ctx.arc(200, 70, 30, 0, 2 * Math.PI);
+                ctx.fillStyle = "orange";
+                ctx.fill();
+                ctx.stroke();
+            </script>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2026 Campus Buzz. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
